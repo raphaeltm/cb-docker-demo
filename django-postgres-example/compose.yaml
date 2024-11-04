@@ -1,0 +1,30 @@
+services:
+  myapp:
+    build: 
+      context: myproject
+      dockerfile: Dockerfile
+    volumes:
+      - ./myproject:/app
+    ports:
+      - "8000:8000"
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
+  postgres2:
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
+
+  postgres3:
+    image: postgres:10
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5434:5432"
